@@ -1,0 +1,54 @@
+$heading1: #00bcd4;
+
+$short-p: #f4a04e;
+$long-p: yellowgreen;
+
+$simple: skyblue; 
+$dynamic: blueviolet;
+
+%short-text {
+    color: $short-p;
+    text-align: center;
+    font-size: 22px;
+}
+
+%long-text {
+    color: $long-p;
+    text-align: center;
+    font-size: 22px;
+}
+
+h1 {
+    color: $heading1;
+    text-align: center;
+    padding: 50px 0px;
+}
+
+.p1 {
+    @extend %short-text;
+}
+
+.p2 {
+    @extend %long-text;
+    padding: 0px 300px;
+}
+
+@mixin simple-mixin() {
+    color: $simple;
+    text-align: center;
+}
+
+.p3 {
+    font-size: 22px;
+    @include simple-mixin();
+}
+
+@mixin dynamic-mixin($passed-var) {
+    color: $passed-var;
+    text-align: center;
+}
+
+.p4 {
+    font-size: 22px;
+    @include dynamic-mixin($dynamic);
+}
